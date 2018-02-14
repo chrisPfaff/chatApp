@@ -1,58 +1,55 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  entry: './src/app.js',
-    output: {
-      path: __dirname + '/dist',
-      filename: 'bundle.js'
-    },
+  entry: "./src/app.js",
+  output: {
+    path: __dirname + "/dist",
+    filename: "bundle.js"
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['babel-preset-env', 'react']
+            presets: ["babel-preset-env", "react"]
           }
         }
       },
       {
-        test: /\.scss%/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        test: /\.sass$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-      test: /\.(png|jp(e*)g|svg$)/,
-      use: [{
-        loader: 'url-loader',
-        options: {
-          limit: 8000,
-          name: './img/[name].[ext]'
-        }
-      }]
-    }
+        test: /\.(png|jp(e*)g|svg$)/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8000,
+              name: "./img/[name].[ext]"
+            }
+          }
+        ]
+      }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-
+    contentBase: path.resolve(__dirname, "dist")
   },
   plugins: [
-
     new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom'
-    }),
+      React: "react",
+      ReactDOM: "react-dom"
+    })
 
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',
@@ -63,4 +60,4 @@ module.exports = {
     // }),
     // new ExtractTextPlugin('style.css')
   ]
-}
+};
