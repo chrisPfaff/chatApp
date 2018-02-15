@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/main.sass';
 import Header from './Header';
 
 class Main extends Component {
