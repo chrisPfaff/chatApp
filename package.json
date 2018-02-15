@@ -18,7 +18,11 @@
     "url": "https://github.com/chrisPfaff/chatApp/issues"
   },
   "homepage": "https://github.com/chrisPfaff/chatApp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
