@@ -1,6 +1,6 @@
 import Main from './components/Main'
 import ReactDOM from 'react-dom';
-import './styles/styles.css';
+import './index.tailwind.css';
 
 
 

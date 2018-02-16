@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "tailwind build ./src/index.tailwind.css -c ./tailwind.js -o ./src/index.css",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "tailwind && webpack-dev-server"
   },
   "repository": {
     "type": "git",
