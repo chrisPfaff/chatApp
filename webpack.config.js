@@ -23,13 +23,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            'postcss-loader'
-          ]
-        })
+        loaders: ["style-loader", "css-loader"]
       },
       {
         test: /\.(png|jp(e*)g|svg$)/,
@@ -55,8 +49,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
       ReactDOM: "react-dom"
-    }),
-    new ExtractTextPlugin('styles.css')
+    })
 
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',

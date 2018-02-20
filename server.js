@@ -3,7 +3,7 @@ const http = require('http')
 const socketIO = require('socket.io')
 
 // our localhost port
-const port = 8080
+const port = 8081
 
 const app = express()
 
@@ -14,15 +14,13 @@ const server = http.createServer(app)
 const io = socketIO(server)
 
 // This is what the socket.io syntax is like, we will work this later
-io.on('connection', socket => {
+io.on('connection', (socket) => {
   console.log('User connected')
 
   socket.on('disconnect', () => {
     console.log('user disconnected')
   })
 })
-app.get('/', (req, res) => {
-  console.log('hello');
-})
+
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
