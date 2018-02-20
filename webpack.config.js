@@ -43,7 +43,8 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "dist")
+    contentBase: path.resolve(__dirname, "dist"),
+    noInfo: true
   },
   plugins: [
     new webpack.ProvidePlugin({
